@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Ordering & Kitchen Ops · Case study · Abhishek Sharma</title>
+<meta name="description" content="How UniLiv moved from WhatsApp meal counts to rule-based orders, one consolidated kitchen plan and proof at every step from order to waste.">
+<meta property="og:title" content="Food Ordering & Kitchen Ops: case study by Abhishek Sharma">
+<meta property="og:description" content="Rule-based meal orders, a consolidated kitchen summary and a tracked lifecycle from order to waste, built for a multi-city co-living operator.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://abhishekk0425.github.io/Portfolio/case-studies/food-kitchen-ops.html">
+<meta property="og:image" content="https://abhishekk0425.github.io/Portfolio/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://abhishekk0425.github.io/Portfolio/case-studies/food-kitchen-ops.html">
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F5A623'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%230B1120'%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* Order lifecycle strip (page-specific) */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 22px;padding:0;list-style:none}
+.flow li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text)}
+.flow li span{background:var(--base-2);border:1px solid var(--line-strong);border-radius:8px;padding:7px 12px;white-space:nowrap}
+.flow li span small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-top:2px}
+.flow li:not(:last-child)::after{content:"→";color:var(--amber);font-weight:600}
+.flow li.end span{border-color:var(--teal);background:var(--teal-soft)}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="brand" aria-label="Abhishek Sharma, home"><span class="dot">AS</span>Abhishek Sharma</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="../index.html#work">Case studies</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../assets/Abhishek_Sharma_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="../index.html#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="cs-hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All case studies</a><br>
+    <span class="eyebrow">Case study 01</span>
+    <h1>From WhatsApp meal counts to one kitchen plan, with proof at every step</h1>
+    <p class="summary">Every UniLiv and Huddle property ordered meals from the central kitchen through WhatsApp. Counts were guessed, deliveries were never verified and waste was never measured, so the kitchen cooked blind and nobody could say where food went missing. I wrote the PRD and owned the product that replaced it: rule-based orders, one consolidated kitchen summary, and a tracked lifecycle from order to waste.</p>
+    <dl class="meta-row"><div><dt>My role</dt><dd>Product owner · PRD author</dd></div><div><dt>Team</dt><dd><em class="est">2 devs · 1 designer</em></dd></div><div><dt>Timeline</dt><dd><em class="est">Oct 2025 – Jan 2026</em></dd></div><div><dt>Users</dt><dd>9 roles · Unit Leads, F&B, Ops leadership</dd></div></dl>
+    <div class="tldr"><div class="k"><div class="big"><em class="est">−50%</em></div><div class="sm">food cooked but not served</div></div><div class="k"><div class="big"><em class="est">72%</em></div><div class="sm">of deliveries confirmed with item-wise received quantity by week 8</div></div><div class="k"><div class="big"><em class="est">14 → 3</em></div><div class="sm">short or wrong dispatches per week</div></div></div>
+  </div>
+</section>
+<div class="wrap cs-layout">
+  <nav class="toc" aria-label="On this page"><a href="#context">Context</a><a href="#problem">Problem</a><a href="#discovery">Discovery</a><a href="#decision">Options & decision</a><a href="#solution">What shipped</a><a href="#rollout">Rollout</a><a href="#impact">Impact</a><a href="#learnings">Learnings</a></nav>
+  <article class="cs-content">
+
+<section id="context" class="reveal"><span class="eyebrow">Context</span><h2>A kitchen cooking blind</h2>
+<p>A central kitchen in Delhi prepares breakfast, lunch, snacks and dinner for 50 properties and roughly 10,000 residents. Two brands share the same weekly menu rotation. <strong>UniLiv</strong> serves the fuller set, with two veg dishes, desi ghee chapatti and night milk. <strong>Huddle</strong> serves a trimmed set of the same dishes.</p>
+<p>Before this project, each Unit Lead sent a headcount on WhatsApp by <em class="est">9 am</em>. The kitchen added the numbers up by hand, cooked a buffer "just in case" and sent food out with no record of what left the kitchen, what arrived at the property or what was thrown away.</p></section>
+
+<section id="problem" class="reveal"><span class="eyebrow">Problem</span><h2>Four gaps, one broken chain</h2>
+<ul class="bul">
+<li><strong>Wrong quantities.</strong> Manual counts led to over- and under-production. Kitchen logs showed <em class="est">18%</em> of cooked food came back or was thrown away, while some properties still ran short.</li>
+<li><strong>No proof of delivery.</strong> Nobody recorded what actually arrived, so every shortfall became an argument between the property and the kitchen.</li>
+<li><strong>No consolidated plan.</strong> The kitchen had no single view of what to cook across properties, dishes and units.</li>
+<li><strong>No visibility.</strong> Cluster, city and zonal heads couldn't see order volumes, status or waste trends at all.</li></ul>
+<div class="callout"><b>Root cause</b>The order, the cook plan, the dispatch and the delivery were never linked. Each step relied on someone's word, so errors couldn't be traced and nobody owned the waste. Digitising the WhatsApp message alone would have kept the guess and the gaps.</div></section>
+
+<section id="discovery" class="reveal"><span class="eyebrow">Discovery</span><h2>What I learned on site</h2>
+<p>I spent <em class="est">3 mornings</em> in the kitchen and visited <em class="est">4 properties</em> at meal times. I also pulled <em class="est">8 weeks</em> of dispatch and complaint data, and gathered requirements from every role that touches a meal, from Unit Leads to the F&amp;B Zonal Head.</p>
+<ul class="bul">
+<li>Unit Leads padded counts by about <em class="est">15%</em>, because running short got them blamed and over-ordering didn't.</li>
+<li>About <em class="est">30%</em> of residents skipped dinner on weekends, but counts didn't change by day.</li>
+<li>The kitchen needed final numbers by <em class="est">10 am</em> for lunch prep, and wanted totals in kg and litres, not hundreds of property-level gram counts.</li>
+<li>Leadership at each level wanted the same data cut differently: property, cluster, city and zone.</li></ul></section>
+
+<section id="decision" class="reveal"><span class="eyebrow">Options & decision</span><h2>What we considered</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>For</th><th>Against</th><th>Call</th></tr></thead><tbody>
+<tr><td>Digital headcount form for Unit Leads</td><td>Fast to build</td><td>Keeps the padded guess; still no proof of delivery</td><td>Rejected</td></tr>
+<tr><td>Resident-level pre-orders in the resident app</td><td>Most precise demand signal</td><td>Depends on resident adoption; too slow to fix waste this quarter</td><td>Later</td></tr>
+<tr><td class="pick">Unit Lead orders by meal type and resident count, with per-resident rules setting dish quantities, plus a tracked lifecycle with proof of delivery and waste capture</td><td>Removes free-typed guesses; every step has an owner and a record</td><td>Needs accurate master data (dishes, rules, properties)</td><td class="pick">Chosen</td></tr>
+</tbody></table></div>
+<p><strong>What we deliberately left out of v1:</strong> resident pre-orders, payments, menu ratings and kitchen inventory. They were all requested, but none of them closed the accountability gap in the first quarter.</p></section>
+
+<section id="solution" class="reveal"><span class="eyebrow">What shipped</span><h2>One lifecycle from order to waste</h2>
+<p>Every order now moves through the same tracked states, and each step belongs to a named role:</p>
+<ol class="flow" aria-label="Order lifecycle">
+  <li><span>Ordered<small>Unit Lead</small></span></li>
+  <li><span>Preparing<small>F&amp;B Supervisor</small></span></li>
+  <li><span>Dispatched<small>F&amp;B · delivery partner</small></span></li>
+  <li><span>Delivered<small>Unit Lead · with proof</small></span></li>
+  <li class="end"><span>Waste logged<small>Unit Lead · within 1 hr</small></span></li>
+</ol>
+<ul class="bul">
+<li><strong>Place Order:</strong> the Unit Lead picks a meal type (breakfast, lunch, snacks or dinner) and the resident count. Per-resident rules in Settings turn that into dish quantities, so nobody types a guess. Orders can be edited or cancelled only until dispatch.</li>
+<li><strong>Kitchen Summary:</strong> one consolidated prep plan per dish and meal across all open orders, with a property-wise breakdown, a grand total and automatic unit conversion (1,000 g shown as 1 kg, 1,000 ml as 1 litre). The F&amp;B team marks orders Preparing from here.</li>
+<li><strong>Dispatch:</strong> cards per property and meal. The team assigns a delivery partner and marks orders Dispatched, one at a time or in bulk.</li>
+<li><strong>Confirm Delivery:</strong> the Unit Lead records the item-wise received weight as proof, adds remarks and marks the order Delivered with a timestamp.</li>
+<li><strong>Waste Tracking:</strong> received and wasted quantity per dish, editable only within one hour of delivery and capped at the ordered amount, so the numbers can't be adjusted later.</li>
+<li><strong>Dashboard &amp; Reports:</strong> KPI cards for total, ordered, dispatched and delivered orders compared with the prior period, plus orders per day, meal mix and resident trends. Leadership can filter by property, cluster, city or zone and download reports.</li>
+<li><strong>Settings:</strong> master data for properties, meal-to-dish mapping, per-resident rules, users and delivery partners. One shared catalogue serves both brands, uploadable by CSV, and each brand's service set controls how many items it serves. Deactivating a property keeps its order history.</li></ul>
+<figure><div class="shot"><img src="../assets/img/food-kitchen-ops/cook-plan-screen.png" alt="Kitchen Summary screen: consolidated prep plan per dish and meal with property-wise breakdown and totals in kg and litres" loading="lazy"></div><figcaption>Kitchen Summary: the consolidated prep plan the F&amp;B team cooks from</figcaption></figure>
+
+<h3>Nine roles, one permission matrix</h3>
+<p>Each role sees only what it needs and edits only what it owns.</p>
+<div class="table-wrap"><table><thead><tr><th>Role</th><th>What they do</th></tr></thead><tbody>
+<tr><td>Unit Lead</td><td>Place orders, confirm delivery with received quantities, record waste</td></tr>
+<tr><td>Cluster Manager</td><td>Monitor and edit orders and deliveries across a cluster of properties</td></tr>
+<tr><td>City Head · Zonal Head</td><td>City and zone oversight of orders and waste, edit all orders, download reports</td></tr>
+<tr><td>F&amp;B Supervisor · Manager · Zonal Head</td><td>Kitchen summary, preparation and dispatch; prep-to-delivery reports</td></tr>
+<tr><td>Ops Excellence (Admin)</td><td>Full access, including Settings and master data</td></tr>
+<tr><td>Senior Vice President</td><td>View-only KPIs and trends</td></tr>
+</tbody></table></div></section>
+
+<section id="rollout" class="reveal"><span class="eyebrow">Rollout</span><h2>Pilot first, switch WhatsApp off last</h2>
+<p>Before go-live, we set up the master data: the shared menu catalogue, meal-to-dish mapping and per-resident rules for each brand. We then piloted at <em class="est">2 properties</em> for <em class="est">3 weeks</em> and kept WhatsApp running in parallel so the kitchen had a fallback. Once the kitchen summary matched actual servings within <em class="est">±5%</em>, we switched WhatsApp off and rolled out city by city.</p>
+<p>The hardest part was not the software. Unit Leads had to trust that ordering by resident count wouldn't leave them short. Item-wise proof of delivery helped here: when food was short, the record now showed exactly where in the chain it went missing, so the blame stopped landing on the property by default.</p></section>
+
+<section id="impact" class="reveal"><span class="eyebrow">Impact</span><h2>What changed after <em class="est">90 days</em></h2>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td>Food cooked but not served</td><td><em class="est">18%</em></td><td><em class="est">9%</em></td></tr>
+<tr><td>Short / wrong dispatches per week</td><td><em class="est">14</em></td><td><em class="est">3</em></td></tr>
+<tr><td>Food-related complaints per 100 residents</td><td><em class="est">6.1</em></td><td><em class="est">2.4</em></td></tr>
+<tr><td>Deliveries confirmed with item-wise received quantity</td><td>0%</td><td><em class="est">72%</em></td></tr></tbody></table></div>
+<p>Measured from kitchen logs, waste tracking, delivery confirmations and the complaint tracker, comparing the <em class="est">6 weeks</em> before the pilot with weeks 7–12 after full rollout.</p>
+<!-- <figure><div class="shot"><img src="../assets/img/food-kitchen-ops/waste-analytics.png" alt="Waste Analytics screen: waste by kg, litre and pieces as a share of received quantity, with a falling waste trend and filters for city, cluster, property and brand" loading="lazy"></div><figcaption>Waste Analytics: waste as a share of what each property received, by kg, litre and pieces, filterable by city, cluster, property and brand</figcaption></figure></section> -->
+
+<section id="learnings" class="reveal"><span class="eyebrow">Learnings</span><h2>Two things I'd do differently</h2>
+<ul class="bul">
+<li>I underestimated weekend behaviour. The first per-resident rules assumed everyone eats every meal, and Sunday dinners were over-cooked for <em class="est">2 weeks</em> until Unit Leads entered expected diners instead of total residents.</li>
+<li>I'd involve the kitchen team in writing the acceptance criteria from day one. They spotted the 10 am cut-off and the need for kg and litre totals, both of which I had missed in the first draft of the PRD.</li></ul></section>
+
+    <div class="next-cs">
+      <a href="housekeeping.html"><span>← Previous</span><b>Facility Services Management</b></a>
+      <a href="preventive-maintenance.html"><span>Next →</span><b>Preventive Maintenance</b></a>
+    </div>
+  </article>
+</div>
+</main>
+<footer><div class="wrap"><p>© <span id="yr">2026</span> Abhishek Sharma</p><p><a href="../index.html#contact">Get in touch →</a></p></div></footer>
+<script src="../assets/main.js"></script>
+</body>
+</html>

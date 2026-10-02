@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preventive Maintenance · Case study · Abhishek Sharma</title>
+<meta name="description" content="One preventive maintenance module for five scheduled activities (electrical PM, servo PM, water tank cleaning, curtain cleaning and vehicle PM) running on the same scan-to-start, evidence-to-close workflow as housekeeping.">
+<meta property="og:title" content="Preventive Maintenance: case study by Abhishek Sharma">
+<meta property="og:description" content="An asset register and one scheduler for five PM activities on a shared QR task workflow, each with its own frequency and proof of work, built for a multi-city co-living operator.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://abhishekk0425.github.io/Portfolio/case-studies/preventive-maintenance.html">
+<meta property="og:image" content="https://abhishekk0425.github.io/Portfolio/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://abhishekk0425.github.io/Portfolio/case-studies/preventive-maintenance.html">
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F5A623'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%230B1120'%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* PM cycle strip (page-specific) */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 22px;padding:0;list-style:none}
+.flow li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text)}
+.flow li span{background:var(--base-2);border:1px solid var(--line-strong);border-radius:8px;padding:7px 12px;white-space:nowrap}
+.flow li span small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-top:2px}
+.flow li:not(:last-child)::after{content:"→";color:var(--amber);font-weight:600}
+.flow li.end span{border-color:var(--teal);background:var(--teal-soft)}
+.flow-note{font-size:14px;color:var(--muted);margin:-8px 0 22px}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="brand" aria-label="Abhishek Sharma, home"><span class="dot">AS</span>Abhishek Sharma</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="../index.html#work">Case studies</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../assets/Abhishek_Sharma_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="../index.html#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="cs-hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All case studies</a><br>
+    <span class="eyebrow">Case study 02</span>
+    <h1>One schedule for everything a property must service, before it fails</h1>
+    <p class="summary">Maintenance at UniLiv was reactive. Something broke, a resident complained, and a technician was sent. Scheduled jobs such as servo checks, water tank cleaning and vehicle servicing lived in vendor notebooks and WhatsApp, with no proof they happened. I owned the Preventive Maintenance module that replaced this: an asset register plus one scheduler for five PM activities. Every job runs on the same workflow as housekeeping (assigned, scan the QR to start, close with evidence, Unit Lead verifies). Only the activity, its frequency and its proof of work change.</p>
+    <dl class="meta-row"><div><dt>My role</dt><dd>Product owner</dd></div><div><dt>Team</dt><dd><em class="est">2 devs</em></dd></div><div><dt>Timeline</dt><dd><em class="est">Dec 2025 – Mar 2026</em></dd></div><div><dt>Users</dt><dd>Technicians · vendors · Unit Leads · Ops</dd></div></dl>
+    <div class="tldr"><div class="k"><div class="big"><em class="est">52% → 89%</em></div><div class="sm">PM tasks completed on schedule</div></div><div class="k"><div class="big"><em class="est">−39%</em></div><div class="sm">breakdown complaints per property</div></div><div class="k"><div class="big"><em class="fill">15000+</em></div><div class="sm">assets registered and tagged</div></div></div>
+  </div>
+</section>
+<div class="wrap cs-layout">
+  <nav class="toc" aria-label="On this page"><a href="#context">Context</a><a href="#problem">Problem</a><a href="#discovery">Discovery</a><a href="#decision">Options & decision</a><a href="#solution">What shipped</a><a href="#rollout">Rollout</a><a href="#impact">Impact</a><a href="#learnings">Learnings</a></nav>
+  <article class="cs-content">
+
+<section id="context" class="reveal"><span class="eyebrow">Context</span><h2>Reactive by default</h2>
+<p>Each property has electrical assets (geysers, pumps, ACs, panels and servo stabilisers), water tanks, curtains, garden areas and, in some cases, vehicles. All of them need servicing on a schedule. Servicing was tracked, if at all, in vendor notebooks, and residents were usually the first to notice a failure.</p>
+<p>Maintenance complaints were the <em class="est">largest</em> complaint category, and each breakdown cost <em class="est">₹1,800</em> on average once emergency call-outs were counted.</p>
+<p><strong>Where this module fits:</strong> Preventive Maintenance is a separate module that owns five asset and upkeep activities on a <em>cycle</em>: Electrical PM, Electrical Servo PM, Water Tank Cleaning, Curtain Cleaning and Vehicle PM. Daily cleaning, deep cleaning, pest control and horticulture run in <a href="housekeeping.html" style="color:var(--amber)">Facility Services Management</a>, and property quality is checked independently by the <a href="audit-management.html" style="color:var(--amber)">Audit</a> module.</p></section>
+
+<section id="problem" class="reveal"><span class="eyebrow">Problem</span><h2>You can't schedule what you can't list</h2>
+<ul class="bul">
+<li><strong>Breakdowns dominated.</strong> They made up <em class="est">46%</em> of all maintenance complaints.</li>
+<li><strong>No asset list.</strong> No property had a complete register, so there was nothing to attach a schedule to.</li>
+<li><strong>Blind to repeats.</strong> Tickets weren't linked to assets, so the same geyser could fail three times without anyone noticing.</li>
+<li><strong>Five activities, five trackers.</strong> Electrical checks, servo checks, water tank cleaning, curtain cleaning and vehicle servicing each lived in a different notebook or chat, with no proof a technician or vendor actually did the work.</li></ul>
+<div class="callout"><b>Root cause</b>The problem wasn't missing reminders. It was missing data. Every scheduled job needs the same four things (what, where, when, and proof it was done), but none of them were recorded. The first deliverable had to be an asset and location register that technicians would actually keep up to date. The scheduler came second.</div></section>
+
+<section id="discovery" class="reveal"><span class="eyebrow">Discovery</span><h2>Following technicians and vendors on their rounds</h2>
+<p>I joined technicians on rounds at <em class="fill">8</em> properties and analysed <em class="fill">3 months</em> of maintenance tickets.</p>
+<ul class="bul">
+<li><em class="est">70%</em> of breakdowns came from electrical assets, mainly geysers, water pumps and servo stabilisers.</li>
+<li>Technicians would not fill in long forms on a phone. Anything over <em class="est">5 fields</em> got skipped.</li>
+<li>Vendors already had service intervals for every asset type. We just weren't recording them.</li>
+<li>Very different jobs, from a servo check to a water tank clean to a vehicle service, shared one shape with a daily housekeeping task: a due date, an assignee, a location and proof. That meant PM could reuse the housekeeping workflow and only change the activity rules.</li></ul></section>
+
+<section id="decision" class="reveal"><span class="eyebrow">Options & decision</span><h2>One engine, many schedules</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>For</th><th>Against</th><th>Call</th></tr></thead><tbody>
+<tr><td>Buy an off-the-shelf maintenance tool</td><td>Feature-rich, quick to start</td><td>Cost per seat; no link to our complaint data</td><td>Rejected</td></tr>
+<tr><td>Spreadsheet schedule per property</td><td>Zero build cost</td><td>Same failure as the notebooks; no proof of work</td><td>Rejected</td></tr>
+<tr><td>A separate tracker for each service type</td><td>Tailored to each vendor</td><td>Five places to check; no single view of what's overdue</td><td>Rejected</td></tr>
+<tr><td class="pick">One PM engine on the same task workflow as housekeeping: QR-tagged assets and locations, a schedule template per activity, evidence rules per activity. Start with electrical assets, then add the rest</td><td>Covers <em class="est">70%</em> of breakdowns within weeks; one overdue view for every service</td><td>Partial coverage at first</td><td class="pick">Chosen</td></tr>
+</tbody></table></div>
+<p><strong>What we deliberately left out of v1:</strong> spare-parts inventory, vendor invoicing, and lifts and DG sets (already under vendor AMCs). They were all requested, but none of them targeted the failures residents actually felt.</p></section>
+
+<section id="solution" class="reveal"><span class="eyebrow">What shipped</span><h2>Same workflow as housekeeping, five different activities</h2>
+<p>Every PM job moves through the same states as a housekeeping task. Only the trigger, the frequency and the proof of work depend on the activity:</p>
+<ol class="flow" aria-label="PM task workflow">
+  <li><span>Assigned<small>Schedule · complaint · move-out · UL</small></span></li>
+  <li><span>In progress<small>Asset / location QR starts timer</small></span></li>
+  <li><span>Completed<small>Activity checklist + photos</small></span></li>
+  <li><span>Verified<small>UL verifies, rates or reopens</small></span></li>
+  <li class="end"><span>Next due set<small>Cycle restarts</small></span></li>
+</ol>
+<p class="flow-note">Side paths, as in housekeeping: <strong>Failed</strong> (reason + photo), <strong>Missed</strong> (past its SLA) and <strong>Reopened</strong> (UL rejects, the technician must re-scan the QR).</p>
+
+<h3>The five PM activities</h3>
+<div class="table-wrap"><table><thead><tr><th>Activity</th><th>Covers</th><th>Done by</th><th>Frequency</th><th>Proof of work</th></tr></thead><tbody>
+<tr><td>Electrical PM</td><td>Geysers, pumps, ACs, panels</td><td>Property technician</td><td><em class="est">Monthly</em></td><td>Asset QR + short checklist + photo</td></tr>
+<tr><td>Electrical Servo PM</td><td>Servo voltage stabilisers</td><td>Technician or vendor</td><td><em class="est">Quarterly</em></td><td>Asset QR + voltage reading + photo</td></tr>
+<tr><td>Water Tank Cleaning</td><td>Overhead and underground tanks</td><td>Vendor</td><td><em class="est">Every 6 months</em></td><td>Location QR + before and after photos + UL sign-off</td></tr>
+<tr><td>Curtain Cleaning</td><td>Room and common-area curtains</td><td>In-house staff or vendor</td><td><em class="est">Quarterly and on move-out</em></td><td>Room QR + checklist + photo</td></tr>
+<tr><td>Vehicle PM</td><td>Property and kitchen vehicles</td><td>Service vendor</td><td><em class="est">Monthly or by distance</em></td><td>Vehicle QR + odometer reading + service record + photo</td></tr>
+</tbody></table></div>
+
+<h3>What's shared with housekeeping, and what's different</h3>
+<div class="table-wrap"><table><thead><tr><th></th><th>Shared</th><th>Different in PM</th></tr></thead><tbody>
+<tr><td>Ticket</td><td>One ticket model and the same states</td><td>Created from a cycle, a complaint or a move-out, not a daily roster</td></tr>
+<tr><td>Start</td><td>Scan the QR at the location to start the timer</td><td>Asset QRs (geyser, servo, tank, vehicle) as well as room and area QRs</td></tr>
+<tr><td>Close</td><td>Can't close without the activity's mandatory evidence</td><td>Readings and service records, not just photos</td></tr>
+<tr><td>Verify</td><td>Unit Lead verifies, rates or reopens</td><td>Sign-off required for vendor jobs such as water tank cleaning</td></tr>
+<tr><td>Who</td><td>Execution roles see only their own tasks</td><td>Many jobs go to vendors, so vendor logins and visit SLAs are needed</td></tr>
+</tbody></table></div>
+
+<ul class="bul">
+<li><strong>Asset register:</strong> a QR sticker on each asset and location. Scanning it opens the full service history.</li>
+<li><strong>Task sources:</strong> each activity's schedule creates tickets on the due date; move-outs trigger curtain cleaning; breakdown complaints attach to the asset and can raise an extra PM job; and Unit Leads can raise on-demand jobs.</li>
+<li><strong>Full record on every job:</strong> property, asset or location, assignee, start and end time, duration, photos, checklist, verifier and rating.</li>
+<li><strong>Vendor accountability:</strong> vendor jobs such as water tank cleaning and vehicle servicing need a Unit Lead sign-off, and every visit record carries time, photos and readings, so invoices can be checked against work actually done.</li>
+<li><strong>Self-healing schedules:</strong> a failed or missed PM job alerts the Unit Lead and stays on the overdue list until it is done, and completing a job sets the next due date automatically.</li></ul>
+<figure><div class="shot"><img src="../assets/img/preventive-maintance/preventive-maintance-screen.png" alt="Preventive Maintenance screen showing scheduled PM tasks and their status" loading="lazy"></div><figcaption>Preventive Maintenance: scheduled PM tasks and their status</figcaption></figure>
+
+<h3>Who does what</h3>
+<div class="table-wrap"><table><thead><tr><th>Role</th><th>What they do</th></tr></thead><tbody>
+<tr><td>Technician · vendor</td><td>See only assigned jobs; scan, start, complete, log readings, upload photos, mark failed with a reason</td></tr>
+<tr><td>Unit Lead</td><td>Assign and raise on-demand jobs, see live status, verify, rate or reopen, sign off vendor visits</td></tr>
+<tr><td>Cluster Manager</td><td>Multi-property dashboards; approve unscheduled vendor visits; alerts on SLA breaches, missed vendor visits and repeat breakdowns on the same asset</td></tr>
+<tr><td>Ops Excellence</td><td>Configure schedules, checklists and SLAs per activity; vendor scorecards and compliance analytics</td></tr>
+<tr><td>Admin</td><td>Full access, vendor onboarding, QR generation</td></tr>
+</tbody></table></div></section>
+
+<section id="rollout" class="reveal"><span class="eyebrow">Rollout</span><h2>Electrical first, then everything else</h2>
+<p>We tagged <em class="fill">3000</em> assets across <em class="fill">45</em> properties in <em class="est">2 weeks</em> through a tagging drive with the ops team, starting with electrical PM, where most breakdowns came from. Technicians got a <em class="est">5-minute</em> walkthrough on their first scan. Once on-time completion held above <em class="est">85%</em> for a month, we added the remaining activities: servo PM, then water tank cleaning, curtain cleaning and vehicle PM with their vendors. Because every activity reuses the housekeeping workflow, each new one needed only a schedule template, a checklist and its evidence rules, not a new build.</p></section>
+
+<section id="impact" class="reveal"><span class="eyebrow">Impact</span><h2>What changed after <em class="est">90 days</em></h2>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td>PM tasks completed on schedule</td><td><em class="est">52%</em></td><td><em class="est">89%</em></td></tr>
+<tr><td>Breakdown complaints per property / month</td><td><em class="est">9.5</em></td><td><em class="est">5.8</em></td></tr>
+<tr><td>Assets with full service history</td><td>~0</td><td><em class="fill">5000</em></td></tr></tbody></table></div>
+<p>No PM schedule existed before launch, so on-time completion compares the <em class="est">first month after launch</em> with <em class="est">month 4</em>. Breakdown complaints compare the <em class="est">3 months</em> before tagging with months 2–4 after.</p></section>
+
+<section id="learnings" class="reveal"><span class="eyebrow">Learnings</span><h2>Two things I'd do differently</h2>
+<ul class="bul">
+<li>QR stickers peeled off in wet areas such as pump rooms and tank access points. Weatherproof tags should have been in the v1 budget.</li>
+<li>On-time completion went up before breakdowns went down. The lag was about <em class="est">6 weeks</em>, and I should have set that expectation with leadership up front.</li></ul></section>
+
+    <div class="next-cs">
+      <a href="food-kitchen-ops.html"><span>← Previous</span><b>Food Ordering & Kitchen Ops</b></a>
+      <a href="audit-management.html"><span>Next →</span><b>Audit Management</b></a>
+    </div>
+  </article>
+</div>
+</main>
+<footer><div class="wrap"><p>© <span id="yr">2026</span> Abhishek Sharma</p><p><a href="../index.html#contact">Get in touch →</a></p></div></footer>
+<script src="../assets/main.js"></script>
+</body>
+</html>

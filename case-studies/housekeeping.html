@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facility Services Management · Case study · Abhishek Sharma</title>
+<meta name="description" content="Facility Services Management: one QR-based module for housekeeping, deep cleaning, pest control and horticulture, so every task is assigned, started at the location, closed with evidence and visible live across a multi-city co-living operator.">
+<meta property="og:title" content="Facility Services Management: case study by Abhishek Sharma">
+<meta property="og:description" content="One QR task engine for housekeeping, deep cleaning, pest control and horticulture, replacing paper registers, WhatsApp photos and vendor invoices.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://abhishekk0425.github.io/Portfolio/case-studies/housekeeping.html">
+<meta property="og:image" content="https://abhishekk0425.github.io/Portfolio/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://abhishekk0425.github.io/Portfolio/case-studies/housekeeping.html">
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F5A623'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%230B1120'%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* Task state strip + status badge (page-specific) */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 10px;padding:0;list-style:none}
+.flow li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text)}
+.flow li span{background:var(--base-2);border:1px solid var(--line-strong);border-radius:8px;padding:7px 12px;white-space:nowrap}
+.flow li span small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-top:2px}
+.flow li:not(:last-child)::after{content:"→";color:var(--amber);font-weight:600}
+.flow li.end span{border-color:var(--teal);background:var(--teal-soft)}
+.flow-note{font-size:14px;color:var(--muted);margin-bottom:22px}
+.status-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--amber);background:var(--amber-soft);border:1px solid rgba(245,166,35,.35);padding:5px 12px;border-radius:100px;margin-left:12px;vertical-align:middle}
+.status-badge i{width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.tldr .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="brand" aria-label="Abhishek Sharma, home"><span class="dot">AS</span>Abhishek Sharma</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="../index.html#work">Case studies</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../assets/Abhishek_Sharma_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="../index.html#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="cs-hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All case studies</a><br>
+    <span class="eyebrow">Case study 04</span><span class="status-badge"><i></i>In progress · PRD v1.0 in review</span>
+    <h1>Making “the room was cleaned” something you can verify</h1>
+    <p class="summary">Housekeeping, deep cleaning, pest control and gardening all ran on paper registers, WhatsApp photos and vendor invoices. There was no proof the work was done, no live status and no way to measure staff or vendors. I'm the product owner for the replacement: <strong>Facility Services Management</strong>, one QR-based module where every task, whatever the activity, is assigned as a ticket, started by scanning the location's QR, closed only with the required evidence, and visible live to the Unit Lead.</p>
+    <dl class="meta-row"><div><dt>My role</dt><dd>Product owner · PRD author</dd></div><div><dt>Stage</dt><dd>PRD v1.0 in review · rollout next</dd></div><div><dt>Activities</dt><dd>Housekeeping · Deep cleaning · Pest control · Horticulture</dd></div><div><dt>Users</dt><dd>HK staff · vendors · Unit Leads · Cluster · Ops</dd></div></dl>
+    <div class="tldr">
+      <div class="k"><div class="tag">Target</div><div class="big">95%+</div><div class="sm">room-cleaning compliance</div></div>
+      <div class="k"><div class="tag">Target</div><div class="big">−80%</div><div class="sm">missed tasks vs the paper baseline</div></div>
+      <div class="k"><div class="tag">Target</div><div class="big">95%+</div><div class="sm">common-area compliance</div></div>
+    </div>
+  </div>
+</section>
+<div class="wrap cs-layout">
+  <nav class="toc" aria-label="On this page"><a href="#context">Context</a><a href="#problem">Problem</a><a href="#discovery">Discovery</a><a href="#decision">Options & decision</a><a href="#solution">What we're building</a><a href="#rollout">Rollout plan</a><a href="#impact">How we'll measure</a><a href="#learnings">Learnings so far</a></nav>
+  <article class="cs-content">
+
+<section id="context" class="reveal"><span class="eyebrow">Context</span><h2>Four activities, one property, no common system</h2>
+<p>Every property needs four kinds of facility work. <strong>Housekeeping</strong> covers daily room cleans and common-area rounds: <strong>UniLiv</strong> rooms are cleaned daily, <strong>Huddle Stays</strong> rooms on alternate days, and reception, lobby, lifts and washrooms on an hourly or shift schedule. <strong>Deep cleaning</strong> runs on a cycle and after every move-out. <strong>Pest control</strong> is done by licensed vendors on a schedule and after complaints. <strong>Horticulture</strong> keeps garden areas watered, weeded and mowed.</p>
+<p><strong>Where this module fits:</strong> Facility Services Management is one module, and housekeeping is one of its four activities. Asset upkeep (electrical, servo, water tanks, curtains and vehicles) runs in the separate <a href="preventive-maintenance.html" style="color:var(--amber)">Preventive Maintenance</a> module, and property quality is checked independently by the <a href="audit-management.html" style="color:var(--amber)">Audit</a> module.</p></section>
+
+<section id="problem" class="reveal"><span class="eyebrow">Problem</span><h2>No proof, no status, no measure</h2>
+<ul class="bul">
+<li><strong>No proof.</strong> A ticked register line, a WhatsApp photo or a vendor invoice couldn't show which room or area was treated, when, or by whom.</li>
+<li><strong>No live status.</strong> Unit Leads found out a room was missed, or a pest visit skipped, only when a resident complained.</li>
+<li><strong>No link to complaints.</strong> A hygiene or pest complaint didn't trigger a deep clean or a treatment, and nobody checked whether the problem came back.</li>
+<li><strong>No measure.</strong> Staff productivity and vendor performance couldn't be compared across properties.</li></ul>
+<div class="callout"><b>Root cause</b>The work was never tied to the place it happened. Without a location check at the start and evidence at the end, any digital checklist would just be a faster way to tick boxes, whichever activity it was for.</div></section>
+
+<section id="discovery" class="reveal"><span class="eyebrow">Discovery</span><h2>What shaped the design</h2>
+<ul class="bul">
+<li><strong>Four activities, one shape.</strong> A room clean, a deep clean and a pest visit all need the same things: a location, an assignee, a start and end time, and proof. That meant one ticket model could run all four, with evidence rules set per activity.</li>
+<li><strong>A missed room isn't always a staff failure.</strong> Rooms went uncleaned because of DND, residents refusing entry, locked rooms, sleeping residents or ongoing maintenance. A missed clean now needs a reason, and DND needs a photo.</li>
+<li><strong>Verification effort should match risk.</strong> Daily cleans are high-volume, so the Unit Lead verifies, rates or reopens them from live status. Deep cleaning and pest control are higher-risk, so the Unit Lead must re-scan the same QR on site to verify.</li>
+<li><strong>Not every activity needs an app.</strong> Gardening is simple and mostly done by vendors, so horticulture runs as backend tickets that the Unit Lead closes, with no gardener login.</li>
+<li><strong>Rooms already had QR codes.</strong> Room QRs were already in place, so the module reuses them and only adds Area QRs for common areas, kitchens, drains and perimeters. One QR can serve several activities.</li></ul></section>
+
+<section id="decision" class="reveal"><span class="eyebrow">Options & decision</span><h2>One task engine, not four apps</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>For</th><th>Against</th><th>Call</th></tr></thead><tbody>
+<tr><td>Keep paper registers, WhatsApp photos and vendor invoices</td><td>No change for staff or vendors</td><td>No proof of location or time; nothing to measure</td><td>Rejected</td></tr>
+<tr><td>A separate app for each activity</td><td>Tailored to each team</td><td>Four ticket models to maintain; staff who do housekeeping and deep cleaning switch apps</td><td>Rejected</td></tr>
+<tr><td>Photo proof on every single task</td><td>Maximum evidence</td><td>Slows daily room cleans; low-risk tasks don't need it</td><td>Rejected</td></tr>
+<tr><td class="pick">One QR task engine for all four activities, with evidence and verification rules matched to each activity's risk</td><td>One model, one dashboard; proof where it matters</td><td>Needs Area QR codes installed in every common area</td><td class="pick">Chosen</td></tr>
+</tbody></table></div>
+<p><strong>What we deliberately left out:</strong> resident feedback and notifications, attendance integration, vendor invoicing, chemical and consumables inventory, and offline mode. All are useful, but none is needed to prove the work happened.</p></section>
+
+<section id="solution" class="reveal"><span class="eyebrow">What we're building</span><h2>Scan to start, evidence to close, live status to manage</h2>
+<p>Every task in the module, whatever the activity, moves through the same states:</p>
+<ol class="flow" aria-label="Task states">
+  <li><span>Assigned<small>UL · schedule · move-out · complaint</small></span></li>
+  <li><span>In progress<small>Room / Area QR starts timer</small></span></li>
+  <li><span>Completed<small>Activity's mandatory evidence</small></span></li>
+  <li class="end"><span>Verified<small>UL verifies, rates or reopens</small></span></li>
+</ol>
+<p class="flow-note">Side paths: <strong>Failed</strong> (with a reason), <strong>Missed</strong> (not done in time) and <strong>Reopened</strong> (UL rejects, staff must re-scan the QR to start again).</p>
+
+<h3>The four activities</h3>
+<div class="table-wrap"><table><thead><tr><th>Activity</th><th>Done by</th><th>Where</th><th>Frequency</th><th>Proof to close</th></tr></thead><tbody>
+<tr><td>Housekeeping</td><td>In-house staff</td><td>Rooms, common areas</td><td>Daily (UniLiv); alternate days (Huddle Stays); hourly or per shift for common areas</td><td>QR scan + complete; after photo for common areas</td></tr>
+<tr><td>Deep Cleaning</td><td>In-house staff or vendor</td><td>Rooms, common areas</td><td>30-day cycle, move-out, hygiene complaint or on demand</td><td>QR + checklist + at least 2 after photos + UL re-scan to verify</td></tr>
+<tr><td>Pest Control</td><td>Licensed vendor</td><td>Rooms, areas, perimeter</td><td>Monthly or quarterly, plus on complaint</td><td>QR per location + pest, method and chemical log + photo + UL sign-off</td></tr>
+<tr><td>Horticulture</td><td>Gardener (in-house or vendor)</td><td>Garden areas</td><td>Daily to monthly, by task</td><td>Backend ticket closed by UL; after photo optional</td></tr>
+</tbody></table></div>
+
+<h3>How each activity works</h3>
+<ul class="bul">
+<li><strong>Housekeeping:</strong> the Unit Lead assigns rooms and common-area tasks each day and the system generates a ticket for each; auto-schedule covers UniLiv rooms daily and Huddle Stays rooms on alternate days (odd and even). Staff scan the room QR, clean per SOP and tap Complete. Failure reasons: DND (photo mandatory), resident denied, room locked, resident sleeping, maintenance in progress, requested later, or other.</li>
+<li><strong>Deep cleaning:</strong> a configurable checklist per location type (fan, windows, bathroom descaling, under-bed, wardrobe, switchboards, walls), plus a weekly common-area plan (Mon fans, Tue dispensers and mats, Wed glass, Thu furniture, Fri dustbins, Sat store, Sun full deep clean). A verified move-out clean marks the room ready for the next resident, and a failed scheduled clean reschedules itself within 3 days.</li>
+<li><strong>Pest control:</strong> one visit is one ticket with a list of locations, each scanned and logged separately. Untreated locations are marked skipped with a reason and carried to a mop-up visit. Pest complaints create a linked task with an automatic follow-up check 7 days later, and coverage below 90% needs a Unit Lead remark.</li>
+<li><strong>Horticulture:</strong> the Unit Lead or Ops Excellence sets up recurring tasks per garden area (watering, litter removal, weeding, mowing, manuring). The system creates a ticket for each occurrence, and the Unit Lead marks it done or skipped (rain, water supply, tools unavailable) from the backend.</li>
+<li><strong>Full record on every task:</strong> property, location, assignee, start and end time, duration, photos, checklist, GPS where enabled, verifier and rating.</li>
+<li><strong>Guardrails:</strong> staff and vendors can't see others' tasks, edit completed tasks, delete or reassign tickets, or close a task without its mandatory evidence.</li></ul>
+<figure><div class="shot"><img src="../assets/img/facility-service/facility-service-managment.png" alt="Unit Lead Today view showing completed, pending, failed and awaiting-verification tasks across housekeeping, deep cleaning, pest control and horticulture" loading="lazy"></div><figcaption>Unit Lead "Today" view: completed, pending, failed and awaiting verification across all activities</figcaption></figure>
+
+<h3>Alerts and dashboards</h3>
+<div class="table-wrap"><table><thead><tr><th>Who</th><th>Gets alerted on</th></tr></thead><tbody>
+<tr><td>Housekeeping staff · pest technician</td><td>Task assigned, reminder, missed task, reopened task, visit reminder</td></tr>
+<tr><td>Unit Lead</td><td>Failed or delayed tasks, items awaiting verification or sign-off, low productivity</td></tr>
+<tr><td>Cluster Manager</td><td>SLA breaches, missed vendor visits, repeat pest complaints, compliance below target</td></tr>
+<tr><td>Ops Excellence</td><td>Weekly vendor and SOP compliance summary</td></tr>
+</tbody></table></div>
+<p>The Unit Lead's <strong>Today</strong> view shows total, completed, pending, in-progress and failed tasks across all activities, plus anything awaiting verification. Separate views cover each activity: room and staff status for housekeeping, due and overdue rooms for deep cleaning, zone status for horticulture, and next visits and coverage for pest control. Cluster and Ops get property-wise compliance and a vendor scorecard.</p>
+
+<h3>Who does what</h3>
+<div class="table-wrap"><table><thead><tr><th>Role</th><th>What they do</th></tr></thead><tbody>
+<tr><td>Housekeeping staff</td><td>Own housekeeping and deep-clean tasks: scan, start, complete, upload photos, mark failed with a reason</td></tr>
+<tr><td>Pest control technician (vendor)</td><td>Assigned visits only: scan per location, log chemical and dosage, upload photos, mark skipped</td></tr>
+<tr><td>Unit Lead</td><td>Assign tasks, see live status, verify, rate or reopen, sign off vendor visits, close horticulture tickets, view reports</td></tr>
+<tr><td>Cluster Manager</td><td>Multi-property dashboards, approve unscheduled vendor visits, audits</td></tr>
+<tr><td>Ops Excellence</td><td>Configure schedules, checklists and SLAs; compliance and vendor analytics</td></tr>
+<tr><td>Admin</td><td>Full access, vendor onboarding, QR generation</td></tr>
+</tbody></table></div></section>
+
+<section id="rollout" class="reveal"><span class="eyebrow">Rollout plan</span><h2>Ship what shares the most, first</h2>
+<div class="table-wrap"><table><thead><tr><th>Phase</th><th>Activities</th><th>Why this order</th></tr></thead><tbody>
+<tr><td>1</td><td>Housekeeping + Deep Cleaning</td><td>Same staff and the same room QRs: highest volume, lowest setup</td></tr>
+<tr><td>2</td><td>Pest Control</td><td>Needs vendor onboarding and the link to the complaint system</td></tr>
+<tr><td>3</td><td>Horticulture</td><td>Lowest risk; scheduled and closed from the backend</td></tr>
+</tbody></table></div>
+<p>Phase 1 starts by installing Area QR codes in every common area, then a pilot at a few properties with paper registers running in parallel. Paper goes away only once compliance holds steady.</p></section>
+
+<section id="impact" class="reveal"><span class="eyebrow">How we'll measure</span><h2>Targets set before launch</h2>
+<p>Results will be published here after rollout. These are the targets agreed in the PRD, measured against the paper-register baseline:</p>
+<div class="table-wrap"><table><thead><tr><th>Activity</th><th>Metric</th><th>Target</th></tr></thead><tbody>
+<tr><td>Housekeeping</td><td>Room-cleaning compliance</td><td>95%+</td></tr>
+<tr><td>Housekeeping</td><td>Missed tasks vs paper baseline</td><td>80% reduction</td></tr>
+<tr><td>Housekeeping</td><td>Common-area compliance</td><td>95%+</td></tr>
+<tr><td>Deep Cleaning</td><td>Cycle compliance (done within cycle ÷ due)</td><td>95%+</td></tr>
+<tr><td>Deep Cleaning</td><td>Move-out turnaround to room-ready</td><td>≤ 24 h</td></tr>
+<tr><td>Pest Control</td><td>Visit adherence (on the scheduled date)</td><td>100%</td></tr>
+<tr><td>Pest Control</td><td>Average location coverage</td><td>90%+</td></tr>
+<tr><td>Horticulture</td><td>Task compliance</td><td>95%+</td></tr>
+<tr><td>All</td><td>QR-validated tasks</td><td>100%</td></tr>
+<tr><td>All</td><td>SLA compliance</td><td>90%+</td></tr>
+<tr><td>All</td><td>Average Unit Lead quality rating</td><td>4 / 5+</td></tr>
+</tbody></table></div>
+<p>Also tracked: average task time, staff and vendor productivity, failed tasks by reason, and the share of DND and denied rooms.</p></section>
+
+<section id="learnings" class="reveal"><span class="eyebrow">Learnings so far</span><h2>What writing the PRD taught me</h2>
+<ul class="bul">
+<li>Drawing clear module boundaries mattered more than any feature. Grouping housekeeping, deep cleaning, pest control and horticulture as activities in one module, and keeping asset upkeep in Preventive Maintenance, gave each module one owner, one kind of work and one set of metrics.</li>
+<li>Evidence and verification should match risk. Daily cleans rely on a QR scan, time and duration; common areas need a photo; deep cleaning and pest control need an on-site re-scan; and horticulture needs only a backend ticket. One engine, four levels of proof.</li></ul></section>
+
+    <div class="next-cs">
+      <a href="audit-management.html"><span>← Previous</span><b>Audit Management</b></a>
+      <a href="food-kitchen-ops.html"><span>Next →</span><b>Food Ordering & Kitchen Ops</b></a>
+    </div>
+  </article>
+</div>
+</main>
+<footer><div class="wrap"><p>© <span id="yr">2026</span> Abhishek Sharma</p><p><a href="../index.html#contact">Get in touch →</a></p></div></footer>
+<script src="../assets/main.js"></script>
+</body>
+</html>
