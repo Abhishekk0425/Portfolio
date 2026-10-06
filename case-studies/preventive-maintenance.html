@@ -53,7 +53,7 @@
     <h1>One schedule for everything a property must service, before it fails</h1>
     <p class="summary">Maintenance at UniLiv was reactive. Something broke, a resident complained, and a technician was sent. Scheduled jobs such as servo checks, water tank cleaning and vehicle servicing lived in vendor notebooks and WhatsApp, with no proof they happened. I owned the Preventive Maintenance module that replaced this: an asset register plus one scheduler for five PM activities. Every job runs on the same workflow as housekeeping (assigned, scan the QR to start, close with evidence, Unit Lead verifies). Only the activity, its frequency and its proof of work change.</p>
     <dl class="meta-row"><div><dt>My role</dt><dd>Product owner</dd></div><div><dt>Team</dt><dd><em class="est">2 devs</em></dd></div><div><dt>Timeline</dt><dd><em class="est">Dec 2025 – Mar 2026</em></dd></div><div><dt>Users</dt><dd>Technicians · vendors · Unit Leads · Ops</dd></div></dl>
-    <div class="tldr"><div class="k"><div class="big"><em class="est">52% → 89%</em></div><div class="sm">PM tasks completed on schedule</div></div><div class="k"><div class="big"><em class="est">−39%</em></div><div class="sm">breakdown complaints per property</div></div><div class="k"><div class="big"><em class="fill">15000+</em></div><div class="sm">assets registered and tagged</div></div></div>
+    <div class="tldr"><div class="k"><div class="big"><em class="est">52% → 89%</em></div><div class="sm">PM tasks completed on schedule</div></div><div class="k"><div class="big"><em class="est">−39%</em></div><div class="sm">fewer breakdown complaints per property per month, before vs after rollout</div></div><div class="k"><div class="big"><em class="fill">15000+</em></div><div class="sm">assets registered and tagged</div></div></div>
   </div>
 </section>
 <div class="wrap cs-layout">
@@ -71,7 +71,7 @@
 <li><strong>No asset list.</strong> No property had a complete register, so there was nothing to attach a schedule to.</li>
 <li><strong>Blind to repeats.</strong> Tickets weren't linked to assets, so the same geyser could fail three times without anyone noticing.</li>
 <li><strong>Five activities, five trackers.</strong> Electrical checks, servo checks, water tank cleaning, curtain cleaning and vehicle servicing each lived in a different notebook or chat, with no proof a technician or vendor actually did the work.</li></ul>
-<div class="callout"><b>Root cause</b>The problem wasn't missing reminders. It was missing data. Every scheduled job needs the same four things (what, where, when, and proof it was done), but none of them were recorded. The first deliverable had to be an asset and location register that technicians would actually keep up to date. The scheduler came second.</div></section>
+<div class="callout"><b>Root cause</b>The problem wasn't missing reminders. It was missing data. Every scheduled job needs the same four things (what, where, when, and proof it was done), but none of them was recorded. The first deliverable had to be an asset and location register that technicians would actually keep up to date. The scheduler came second.</div></section>
 
 <section id="discovery" class="reveal"><span class="eyebrow">Discovery</span><h2>Following technicians and vendors on their rounds</h2>
 <p>I joined technicians on rounds at <em class="fill">8</em> properties and analysed <em class="fill">3 months</em> of maintenance tickets.</p>
@@ -99,7 +99,7 @@
   <li><span>Verified<small>UL verifies, rates or reopens</small></span></li>
   <li class="end"><span>Next due set<small>Cycle restarts</small></span></li>
 </ol>
-<p class="flow-note">Side paths, as in housekeeping: <strong>Failed</strong> (reason + photo), <strong>Missed</strong> (past its SLA) and <strong>Reopened</strong> (UL rejects, the technician must re-scan the QR).</p>
+<p class="flow-note">Side paths, as in housekeeping: <strong>Failed</strong> (reason + photo), <strong>Missed</strong> (past its SLA) and <strong>Reopened</strong> (UL rejects; the technician must re-scan the QR).</p>
 
 <h3>The five PM activities</h3>
 <div class="table-wrap"><table><thead><tr><th>Activity</th><th>Covers</th><th>Done by</th><th>Frequency</th><th>Proof of work</th></tr></thead><tbody>
